@@ -32,8 +32,11 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Task_change');
             <?= $form->field($model, 'responsible_id')->dropDownList($usersList) ?>
         </div>
         <div class="col-lg-3">
-            <?= $form->field($model, 'deadline')->widget(\yii\jui\DatePicker::className(),[
-                'dateFormat' => 'yyyy/MM/dd',
+            <?= $form->field($model, 'deadline')->widget(\kartik\date\DatePicker::className(),[
+                'pluginOptions' => [
+                    'format' => 'yyyy/mm/dd',
+                    'todayHighlight' => true
+                ]
             ]) ?>
         </div>
     </div>
