@@ -1,0 +1,17 @@
+.tasks_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.task-container{
+    margin: 10px;
+}
+
+.task{
+    width: 265px;
+    height: 200px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    padding: 10px;
+}
