@@ -36,9 +36,14 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
+        ['label' => 'Tasks', 'url' => ['tasks/index']],
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
+        ['label' => Yii::t('app', 'lang_label'), 'items' =>[
+            ['label' => 'English', 'url' => ['/site/language', 'lang' => 'en']],
+            ['label' => 'Русский', 'url' => ['/site/language', 'lang' => 'ru']],
+        ]],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
@@ -57,6 +62,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,
     ]);
+
     NavBar::end();
     ?>
 
