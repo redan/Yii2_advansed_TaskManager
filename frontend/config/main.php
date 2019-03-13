@@ -7,11 +7,13 @@ $params = array_merge(
 );
 
 return [
+    'language' => 'ru',
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'bootstrap'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'bootstrap' => frontend\components\Bootstrap::class,
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
@@ -35,6 +37,14 @@ return [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                ],
+            ],
         ],
         /*
         'urlManager' => [

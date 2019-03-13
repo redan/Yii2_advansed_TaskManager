@@ -36,7 +36,8 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Task_change');
                 'pluginOptions' => [
                     'format' => 'yyyy/mm/dd',
                     'todayHighlight' => true
-                ]
+                ],
+                'language' => 'ru'
             ]) ?>
         </div>
     </div>
