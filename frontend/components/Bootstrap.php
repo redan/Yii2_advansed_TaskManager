@@ -3,7 +3,7 @@
 namespace frontend\components;
 
 
-use frontend\models\tables\Tasks;
+use common\models\tables\Tasks;
 use yii\base\Component;
 use yii\base\Event;
 

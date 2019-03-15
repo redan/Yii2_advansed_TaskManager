@@ -5,10 +5,12 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\tables\Tasks */
-/* @var $userList frontend\models\tables\Users[]*/
-/**@var \frontend\models\tables\TaskComments $taskCommentForm */
-/**@var \frontend\models\tables\TaskAttachments $taskAttachmentForm */
+/* @var $model common\models\tables\Tasks */
+/* @var $userList common\models\tables\Users[]*/
+/**@var \common\models\tables\TaskComments $taskCommentForm */
+/**@var \common\models\tables\TaskAttachments $taskAttachmentForm */
+/* @var $channel */
+
 
 
 $this->title = Yii::t('app', 'Task_change') . $model->name;
@@ -95,4 +97,21 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Task_change');
         </div>
 
     </div>
+    <h3>Чат</h3>
+    <div class="task-chat">
+        <form action="#" name="chat_form" id="chat_form">
+            <label>
+                <input type="hidden" name="channel" value="<?=$channel?>"/>
+                <input type="hidden" name="user_id" value="<?=$userId?>/">
+                Введите сообщение
+                <input type="text" name="message">
+                <input type="submit">
+            </label>
+        </form>
+        <hr>
+        <div id="chat"></div>
+    </div>
 </div>
+<script>
+    var channel = '<?=$channel?>'
+</script>

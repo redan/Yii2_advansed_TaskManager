@@ -3,12 +3,12 @@
 namespace frontend\controllers;
 
 
-use frontend\models\filters\TasksSearch;
+use common\models\filters\TasksSearch;
 use frontend\models\forms\TaskAttachmentsAddForm;
-use frontend\models\tables\TaskComments;
-use frontend\models\tables\Tasks;
-use frontend\models\tables\TaskStatuses;
-use frontend\models\tables\Users;
+use common\models\tables\TaskComments;
+use common\models\tables\Tasks;
+use common\models\tables\TaskStatuses;
+use common\models\tables\Users;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
 use yii\web\Controller;
@@ -71,6 +71,7 @@ class TasksController extends Controller
             'userId' => \Yii::$app->user->id,
             'taskCommentForm' => new TaskComments(),
             'taskAttachmentForm' => new TaskAttachmentsAddForm(),
+            'channel' => 'Task_' . $id,
         ]);
     }
 

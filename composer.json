@@ -22,7 +22,8 @@
         "kartik-v/yii2-widget-datepicker": "@dev",
         "codeception/codeception": "*",
         "guzzlehttp/guzzle": "^6.3",
-        "facebook/webdriver": "^1.6"
+        "facebook/webdriver": "^1.6",
+        "cboden/ratchet": "^0.4.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -5,7 +5,7 @@
 $this->title = 'Tasks';
 $this->params['breadcrumbs'][] = $this->title;
 
-$model = \frontend\models\tables\Tasks::find()->all();
+$model = \common\models\tables\Tasks::find()->all();
 ?>
     <p>
         <?= \yii\helpers\Html::a('Create Tasks', ['admin-task/create'], ['class' => 'btn btn-success']) ?>
