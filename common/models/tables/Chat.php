@@ -29,12 +29,9 @@ class Chat extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'chanel', 'message', 'user_id', 'created_at'], 'required'],
-            [['id', 'user_id'], 'integer'],
-            [['message'], 'string'],
+            [['user_id'], 'integer'],
             [['created_at'], 'safe'],
-            [['channel'], 'string', 'max' => 250],
-            [['id'], 'unique'],
+            [['channel', 'message'], 'string', 'max' => 255],
         ];
     }
 
