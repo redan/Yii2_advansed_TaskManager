@@ -1,10 +1,7 @@
 <?php
-//$form = \yii\widgets\ActiveForm::begin();
-//$form->field($model, 'id');
-//\yii\widgets\ActiveForm::end();
 
 use yii\helpers\Url;
-//** @var $model \frontend\models\tables\Task */
+//** @var $model \common\models\tables\Task */
 ?>
 
 <div class="task-container">

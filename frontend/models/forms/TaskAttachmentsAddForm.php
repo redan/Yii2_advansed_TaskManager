@@ -3,7 +3,7 @@
 
 namespace frontend\models\forms;
 
-use frontend\models\tables\TaskAttachments;
+use common\models\tables\TaskAttachments;
 use yii\base\Model;
 use yii\imagine\Image;
 use yii\web\UploadedFile;
