@@ -24,7 +24,7 @@ class Chat implements  MessageComponentInterface
      */
     function onOpen(ConnectionInterface $conn)
     {
-        $queryString = $conn->httpRequest->getUrl()->getQuery();
+        $queryString = $conn->httpRequest->getUri()->getQuery();
         $channel = explode("=", $queryString)[1];
         $this->clients[$channel][$conn->resourceId] = $conn;
         echo "New connection : {$conn->resourceId}\n";
@@ -60,7 +60,7 @@ class Chat implements  MessageComponentInterface
         } catch (\Exception $e){
             var_dump($e->getMessage());
         }
-        foreach ($this->clients[$data['Channel']] as $client){
+        foreach ($this->clients[$data['channel']] as $client){
             $client->send($data['message']);
         }
     }

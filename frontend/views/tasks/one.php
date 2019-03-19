@@ -17,6 +17,7 @@ $this->title = Yii::t('app', 'Task_change') . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Tasks', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => \yii\helpers\Url::to(['admin-task/view', 'id' => $model->id])];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Task_change');
+$this->registerJsFile('js/client.js')
 ?>
 
 <h1><?= Html::encode($this->title) ?></h1>
@@ -80,29 +81,18 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Task_change');
         <?php endforeach;?>
     </div>
     <div class="task-history">
-        <div class="comments">
-            <h3>Комментарии</h3>
-            <?php $form = ActiveForm::begin(['action' => Url::to(['tasks/add-comment'])]);?>
-            <?=$form->field($taskCommentForm, 'user_id')->hiddenInput(['value' => $userId])->label(false);?>
-            <?=$form->field($taskCommentForm, 'task_id')->hiddenInput(['value' => $model->id])->label(false);?>
-            <?=$form->field($taskCommentForm, 'content')->textInput();?>
-            <?=Html::submitButton("Добавить",['class' => 'btn btn-default']);?>
-            <?ActiveForm::end()?>
-            <hr>
-            <div class="comment-history">
-                <?foreach ($model->taskComments as $comment): ?>
-                    <p><strong><?=$comment->user->username?></strong>: <?=$comment->content?></p>
-                <?php endforeach;?>
-            </div>
-        </div>
-
+        <?= $this->render('_comments', [
+            'model' => $model,
+            'taskCommentForm' => $taskCommentForm,
+            'userId' => $userId
+        ]);?>
     </div>
     <h3>Чат</h3>
     <div class="task-chat">
         <form action="#" name="chat_form" id="chat_form">
             <label>
                 <input type="hidden" name="channel" value="<?=$channel?>"/>
-                <input type="hidden" name="user_id" value="<?=$userId?>/">
+                <input type="hidden" name="user_id" value="<?=$userId?>"/>
                 Введите сообщение
                 <input type="text" name="message">
                 <input type="submit">
