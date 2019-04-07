@@ -8,7 +8,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $model = \common\models\tables\Tasks::find()->all();
 ?>
     <p>
-        <?= \yii\helpers\Html::a('Create Tasks', ['admin-task/create'], ['class' => 'btn btn-success']) ?>
+        <?= \yii\helpers\Html::a('Create Tasks', ['tasks/create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <div class="search_container">

@@ -20,8 +20,12 @@ use common\models\tables\TaskStatuses;
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'deadline')->widget(\yii\jui\DatePicker::className(),[
-        'dateFormat' => 'yyyy/MM/dd',
+    <?= $form->field($model, 'deadline')->widget(\kartik\date\DatePicker::className(),[
+        'pluginOptions' => [
+            'format' => 'yyyy/mm/dd',
+            'todayHighlight' => true
+        ],
+        'language' => 'ru'
     ]) ?>
 
     <?= $form->field($model, 'responsible_id')->dropDownList(Users::getUsersList()) ?>
